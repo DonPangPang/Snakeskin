@@ -2,7 +2,7 @@
 
 namespace Snakeskin.Core;
 
-public class UserenameSnakeskinGenerator : StringSnakeskinGenerator, IUsernameSnakeskinGenerator
+public class UsernameSnakeskinGenerator : StringSnakeskinGenerator, IUsernameSnakeskinGenerator
 {
     public override string Generate()
     {
