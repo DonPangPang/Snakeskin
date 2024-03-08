@@ -54,7 +54,7 @@ public static class Snakeskin
     public static string Name(int length, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<INameSnakeskinGenerator>().Generator(length, chars, lowerCase);
     public static string Name(int minLength, int maxLength, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<INameSnakeskinGenerator>().Generator(minLength, maxLength, chars, lowerCase);
     public static string Phone(CountryCode? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
-    public static string Phone(int? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
+    public static string PhoneV2(int? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
     public static string Telephone() => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GenerateTelephoneNumber();
 
 }

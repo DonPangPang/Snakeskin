@@ -24,13 +24,13 @@ public class PhoneSnakeskinGenerator : IPhoneSnakeskinGenerator
 
     public string GeneratePhoneNumber(CountryCode? countryCode = null, int length = 11)
     {
-        return GeneratePhoneNumber(countryCode, length);
+        return GeneratePhoneNumber((int?)countryCode, length);
     }
 
     public string GeneratePhoneNumber(int? countryCode = null, int length = 11)
     {
         var result = new StringBuilder();
-        if (countryCode.HasValue) result.Append($"+{countryCode.Value}");
+        if (countryCode.HasValue) result.Append($"+{countryCode.Value:00}");
         result.Append(1);
         for (var i = 0; i < length - 1; i++)
         {

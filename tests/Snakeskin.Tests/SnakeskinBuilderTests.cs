@@ -2,7 +2,7 @@
 using Snakeskin.Generators;
 using Snakeskin.IGenerators;
 
-namespace Snakeskin.Tests.Core;
+namespace Snakeskin.Tests;
 
 public class SnakeskinBuilderTests
 {
