@@ -6,6 +6,8 @@ namespace Snakeskin.Tests
     {
         private readonly ITestOutputHelper _output;
 
+        private const int MAX_VALUE = 1_000_000;
+
         public SnakeskinTests(ITestOutputHelper output)
         {
             _output = output;
@@ -150,9 +152,14 @@ namespace Snakeskin.Tests
         [Fact]
         public void NameTest()
         {
-            var value = Snakeskin.Name();
+            for(int i = 0; i < MAX_VALUE; i++)
+            {
+                var value = Snakeskin.Name();
 
-            Assert.True(value.Length >= 0);
+                Assert.True(value.Length >= 0);
+
+                _output.WriteLine(value);
+            }
         }
 
         [Fact]

@@ -19,4 +19,13 @@ internal class SnakeskinGenerator
     {
         _random.NextBytes(buffer);
     }
+
+    public static long ExtractRandom(int extract = 2)
+    {
+        if (extract >= sizeof(long) * 2)
+            throw new ArgumentOutOfRangeException(nameof(extract));
+
+        long mask = (1L << (extract * 4) + 1) - 1;
+        return DateTime.UtcNow.Ticks & mask;
+    }
 }

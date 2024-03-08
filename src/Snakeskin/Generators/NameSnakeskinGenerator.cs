@@ -6,14 +6,19 @@ namespace Snakeskin.Generators;
 
 public class NameSnakeskinGenerator : INameSnakeskinGenerator
 {
-    protected readonly string _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    protected readonly string _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public string Generate()
+    private readonly string _firstName = "Fake";
+    private readonly string _secondName = "Name";
+
+    public string Generate(int extract = 16)
     {
-        var length = SnakeskinGenerator.RandomNumber(5, 20);
-        return Generator(length);
+        var rand = DateTime.UtcNow.Ticks;
+        var randString = rand.ToString().Substring(rand.ToString().Length - 2);
+        return $"{_firstName}{SnakeskinGenerator.ExtractRandom(extract)} {_secondName}{SnakeskinGenerator.ExtractRandom(2)}";
     }
 
+    [Obsolete]
     public string Generator(int length, string? chars = null, bool lowerCase = false)
     {
         var charArray = (chars ?? _chars).ToCharArray();
@@ -38,6 +43,7 @@ public class NameSnakeskinGenerator : INameSnakeskinGenerator
         return generatedName;
     }
 
+    [Obsolete]
     public string Generator(int minLength, int maxLength, string? chars = null, bool lowerCase = false)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(minLength);
