@@ -2,7 +2,7 @@
 
 namespace Snakeskin.Core;
 
-internal class SnakeskinGenerator
+public class SnakeskinGenerator
 {
     private static int seed = Environment.TickCount;
 
@@ -27,5 +27,38 @@ internal class SnakeskinGenerator
 
         long mask = (1L << (extract * 4) + 1) - 1;
         return DateTime.UtcNow.Ticks & mask;
+    }
+
+    private const long _quickRandomMask = 1L << 32 - 1;
+
+    private static QuickRandom _quick = new QuickRandom((ulong)seed);
+    public static int QuickRandom(int length)
+    {
+        return (int)_quick.Next(0, 100);
+    }
+}
+
+//XorShift
+public class QuickRandom
+{
+    private ulong _state;
+
+    public QuickRandom(ulong seed)
+    {
+        _state = seed;
+    }
+
+    public ulong Next()
+    {
+        var x = _state;
+        x ^= x << 13;
+        x ^= x >> 7;
+        x ^= x << 17;
+        return _state = x;
+    }
+
+    public ulong Next(ulong minValue, ulong maxValue)
+    {
+        return (Next() - minValue) % (maxValue - minValue) + minValue;
     }
 }
