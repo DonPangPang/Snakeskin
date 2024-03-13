@@ -33,7 +33,7 @@ public static class SnakeskinEntityFrameworkCoreExtensions
 
 public class SnakeskinFakeBuilder<T>
 {
-    public SnakeskinFakeBuilder<T> Fake<TProperty>(Expression<Func<T, TProperty>> expression)
+    public SnakeskinFakeBuilder<T> Fake<TProperty>(Expression<Func<T, TProperty>> expression, TProperty value)
     {
         return this;
     }
@@ -45,11 +45,6 @@ public class SnakeskinFakeBuilder<T>
     {
         return this;
     }
-    public SnakeskinFakeBuilder<T> FakeValue<TProperty>(Expression<Func<T, TProperty>> expression, TProperty value)
-    {
-        return this;
-    }
-
     public SnakeskinFakeBuilder<T> FakeId<TProperty>(Expression<Func<T, TProperty>> expression, bool ordered = true)
     {
         return this;
