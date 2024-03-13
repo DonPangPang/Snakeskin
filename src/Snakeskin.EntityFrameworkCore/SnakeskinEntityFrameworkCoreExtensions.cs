@@ -49,6 +49,46 @@ public class SnakeskinFakeBuilder<T>
     {
         return this;
     }
+
+    public SnakeskinFakeBuilder<T> FakeDateTime<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeBoolean<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeInt<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeFloat<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeDouble<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeDecimal<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeTelephone<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
+
+    public SnakeskinFakeBuilder<T> FakeGuid<TProperty>(Expression<Func<T, TProperty>> expression)
+    {
+        return this;
+    }
 }
 
 public class User
