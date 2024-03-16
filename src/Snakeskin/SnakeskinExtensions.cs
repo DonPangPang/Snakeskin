@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Snakeskin.Core;
-using Snakeskin.Enums;
 using Snakeskin.Generators;
 using Snakeskin.IGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Snakeskin;
@@ -22,7 +23,7 @@ public static class SnakeskinExtensions
         return services;
     }
 
-    public static IServiceCollection AddSnakeskinPrivate(this IServiceCollection services)
+    internal static IServiceCollection AddSnakeskinPrivate(this IServiceCollection services)
     {
         services.AddSingleton<IBooleanSnakeskinGenerator, BooleanSnakeskinGenerator>();
         services.AddSingleton<IDateTimeSnakeskinGenerator, DateTimeSnakeskinGenerator>();
@@ -36,25 +37,45 @@ public static class SnakeskinExtensions
     }
 }
 
-public static class Snakeskin
+public static class SnakeskinConfiguration
 {
-    public static bool Boolean() => SnakeskinBuilder.GetService<IBooleanSnakeskinGenerator>().Generate();
-    public static bool Boolean(float trueProbability) => SnakeskinBuilder.GetService<IBooleanSnakeskinGenerator>().Generate(trueProbability);
-    public static DateTime DateTime() => SnakeskinBuilder.GetService<IDateTimeSnakeskinGenerator>().Generate();
-    public static DateTime DateTime(DateTime min, DateTime max) => SnakeskinBuilder.GetService<IDateTimeSnakeskinGenerator>().Generate(min, max);
-    public static Guid Guid(bool ordered = false) => SnakeskinBuilder.GetService<IGuidSnakeskinGenerator>().Generate(ordered);
-    public static int Int(int min = 0, int max = 100) => SnakeskinBuilder.GetService<INumberSnakeskinGenerator>().GenerateInt(min, max);
-    public static float Float(float min = 0, float max = 100) => SnakeskinBuilder.GetService<INumberSnakeskinGenerator>().GenerateFloat(min, max);
-    public static double Double(double min = 0, double max = 100) => SnakeskinBuilder.GetService<INumberSnakeskinGenerator>().GenerateDouble(min, max);
-    public static decimal Decimal(decimal min = 0, decimal max = 100) => SnakeskinBuilder.GetService<INumberSnakeskinGenerator>().GenerateDecimal(min, max);
-    public static string String() => SnakeskinBuilder.GetService<IStringSnakeskinGenerator>().Generate();
-    public static string String(int length, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<IStringSnakeskinGenerator>().Generator(length, chars, lowerCase);
-    public static string String(int minLength, int maxLength, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<IStringSnakeskinGenerator>().Generator(minLength, maxLength, chars, lowerCase);
-    public static string Name() => SnakeskinBuilder.GetService<INameSnakeskinGenerator>().Generate();
-    public static string Name(int length, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<INameSnakeskinGenerator>().Generator(length, chars, lowerCase);
-    public static string Name(int minLength, int maxLength, string? chars = null, bool lowerCase = false) => SnakeskinBuilder.GetService<INameSnakeskinGenerator>().Generator(minLength, maxLength, chars, lowerCase);
-    public static string Phone(CountryCode? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
-    public static string PhoneV2(int? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
-    public static string Telephone() => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GenerateTelephoneNumber();
+    private static Dictionary<string, List<object>>? _seed { get; set; } = null;
+    static SnakeskinConfiguration()
+    {
+        if (_seed is not null) return;
 
+        _seed ??= [];
+
+        var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "snakeskin.json");
+
+        if (File.Exists(file))
+        {
+            var json = File.ReadAllText(file);
+            var config = JsonSerializer.Deserialize<Dictionary<string, List<object>>>(json);
+
+            if (config != null)
+            {
+                _seed = config;
+            }
+        }
+        else
+        {
+            File.WriteAllText(file, "{}");
+        }
+    }
+
+    public static IEnumerable<object> GetSeed(string key)
+    {
+        if (_seed?.TryGetValue(key, out var value) ?? false)
+        {
+            return value;
+        }
+
+        return Enumerable.Empty<object>();
+    }
+
+    public static Dictionary<string, List<object>> GetSeeds()
+    {
+        return _seed ?? [];
+    }
 }

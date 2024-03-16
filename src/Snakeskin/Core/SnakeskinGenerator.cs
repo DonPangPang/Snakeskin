@@ -32,33 +32,34 @@ public class SnakeskinGenerator
     private const long _quickRandomMask = 1L << 32 - 1;
 
     private static QuickRandom _quick = new QuickRandom((ulong)seed);
-    public static int QuickRandom(int length)
+    public static int QuickRandomNumber(int length)
     {
         return (int)_quick.Next(0, 100);
     }
+
+    //XorShift
+    private class QuickRandom
+    {
+        private ulong _state;
+
+        public QuickRandom(ulong seed)
+        {
+            _state = seed;
+        }
+
+        public ulong Next()
+        {
+            var x = _state;
+            x ^= x << 13;
+            x ^= x >> 7;
+            x ^= x << 17;
+            return _state = x;
+        }
+
+        public ulong Next(ulong minValue, ulong maxValue)
+        {
+            return (Next() - minValue) % (maxValue - minValue) + minValue;
+        }
+    }
 }
 
-//XorShift
-public class QuickRandom
-{
-    private ulong _state;
-
-    public QuickRandom(ulong seed)
-    {
-        _state = seed;
-    }
-
-    public ulong Next()
-    {
-        var x = _state;
-        x ^= x << 13;
-        x ^= x >> 7;
-        x ^= x << 17;
-        return _state = x;
-    }
-
-    public ulong Next(ulong minValue, ulong maxValue)
-    {
-        return (Next() - minValue) % (maxValue - minValue) + minValue;
-    }
-}

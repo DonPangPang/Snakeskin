@@ -29,4 +29,10 @@ public class SnakeskinBuilderTests
         var value5 = generator.GenerateInt();
         Assert.True(value >= 0);
     }
+
+    [Fact]
+    public void ConfigurationTest()
+    {
+        var seeds = SnakeskinConfiguration.GetSeeds();
+    }
 }

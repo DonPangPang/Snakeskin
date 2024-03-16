@@ -23,9 +23,9 @@ public class SnakeskinGeneratorTests
     [Fact]
     public void GeneratorQuickRandom()
     {
-        for(int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
         {
-            var value = SnakeskinGenerator.QuickRandom(2);
+            var value = SnakeskinGenerator.QuickRandomNumber(2);
 
             _output.WriteLine(value.ToString());
         }

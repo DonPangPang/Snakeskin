@@ -15,6 +15,6 @@ public class RandomGeneratorTest
     [Benchmark]
     public void QuickRandomTest()
     {
-        var value = SnakeskinGenerator.QuickRandom(2);
+        var value = SnakeskinGenerator.QuickRandomNumber(2);
     }
 }
