@@ -7,4 +7,5 @@ public enum AddressType
     County = 2,
     Street = 4,
     HouseNumber = 8,
+    Full = City | County | Street | HouseNumber
 }

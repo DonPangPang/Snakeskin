@@ -37,6 +37,11 @@ public class SnakeskinGenerator
         return (int)_quick.Next(0, 100);
     }
 
+    public static int QuickRandomNumber(int min, int max)
+    {
+        return (int)_quick.Next((ulong)min, (ulong)max);
+    }
+
     //XorShift
     private class QuickRandom
     {
