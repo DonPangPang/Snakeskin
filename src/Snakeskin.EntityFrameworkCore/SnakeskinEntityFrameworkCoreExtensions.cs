@@ -1,19 +1,35 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Snakeskin.EntityFrameworkCore.Core;
 
 namespace Snakeskin.EntityFrameworkCore;
 
 public static class SnakeskinEntityFrameworkCoreExtensions
 {
-    private static readonly SnakeskinEntityFrameworkCoreBuilder _builder = new();
-
-    public static ModelBuilder FakeAll(this ModelBuilder modelBuilder)
+    public static IServiceCollection Fake<TDbContext>(this IServiceCollection services)
+        where TDbContext : DbContext,new()
     {
-        return modelBuilder;
+
+        var dbcontext = new TDbContext();
+
+        var types = dbcontext.Model.GetEntityTypes();
+        foreach (var entityType in types)
+        {
+            
+        }
+
+        return services;
     }
 
-    public static SnakeskinEntityFrameworkCoreBuilder Fake<T>(this ModelBuilder modelBuilder, Action<SnakeskinFakeBuilder<T>> exp)
+    private static void AddFakeData(Type entityType)
     {
-        return _builder;
+        var props = entityType.GetProperties().Where(x => x is { CanRead: true, CanWrite: true });
+        foreach (var prop in props)
+        {
+            if (prop.PropertyType == typeof(string))
+            {
+                
+            }
+        }
     }
 }
