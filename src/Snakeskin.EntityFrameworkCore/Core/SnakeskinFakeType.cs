@@ -7,16 +7,22 @@ namespace Snakeskin.EntityFrameworkCore.Core;
 public class SnakeskinFakeType
 {
     public string Key => _type.Name;
+    public string Name => _type.Name;
+    public Type ClrType => _type;
     private readonly Type _type;
     private readonly ConcurrentDictionary<string, SnakeskinFakeProperty> _map = new();
 
     public int Count { get; private set; }
 
-    public SnakeskinFakeType(Type type, int count = 100)
+    public void SetCount(int count)
+    {
+        Count = count;
+    }
+
+    public SnakeskinFakeType(Type type)
     {
         _type = type;
         SetTypeMap();
-        Count = count;
     }
 
     private void SetTypeMap()
@@ -28,7 +34,29 @@ public class SnakeskinFakeType
         }
     }
 
-    public object Fake()
+    public List<object> ToList(int? count = null)
+    {
+        var list = new List<object>();
+        for (var i = 0; i < (count ?? Count); i++)
+        {
+            list.Add(FakeOne());
+        }
+
+        return list;
+    }
+
+    public List<T> ToList<T>(int? count = null) where T : class
+    {
+        var list = new List<T>();
+        for (var i = 0; i < (count ?? Count); i++)
+        {
+            list.Add(FakeOne<T>());
+        }
+
+        return list;
+    }
+
+    public object FakeOne()
     {
         var instance = Activator.CreateInstance(_type);
         foreach (var prop in _map.Values)
@@ -41,9 +69,9 @@ public class SnakeskinFakeType
         return instance;
     }
 
-    public T Fake<T>() where T : class
+    public T FakeOne<T>() where T : class
     {
-        var value = Fake();
+        var value = FakeOne();
         Debug.Assert(value != null, nameof(value) + " != null");
         return value.As<T>() ?? throw new NullReferenceException("Generator error");
     }

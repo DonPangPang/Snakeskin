@@ -16,9 +16,18 @@ public class SnakeskinFakeProperty
     private readonly ConcurrentDictionary<(Type, Func<string, bool>), Func<FakeParameters, object>> _map = new()
     {
         [(typeof(int), _ => true)] = args => Snakeskin.Int(args.MinValue, args.MaxValue),
-        [(typeof(string), name => name.Contains("name", StringComparison.OrdinalIgnoreCase))] = args => Snakeskin.Name(args.MinLength, args.MaxLength),
-        [(typeof(string), name => name.EndsWith("address", StringComparison.OrdinalIgnoreCase))] = args => Snakeskin.String(args.MinValue, args.MaxValue),
-        [(typeof(DateTime), _ => true)] = args => Snakeskin.DateTime()
+        [(typeof(string), name => name.Contains("name", StringComparison.OrdinalIgnoreCase))] = args => Snakeskin.Name(),
+        //[(typeof(string), name => name.EndsWith("address", StringComparison.OrdinalIgnoreCase))] = args => Snakeskin.String(args.MinValue, args.MaxValue),
+        [(typeof(DateTime), _ => true)] = args => Snakeskin.DateTime(),
+        [(typeof(bool), _ => true)] = args => Snakeskin.Boolean(),
+        [(typeof(Guid), _ => true)] = args => Snakeskin.Guid(),
+        [(typeof(decimal), _ => true)] = args => Snakeskin.Decimal(args.MinValue, args.MaxValue),
+        [(typeof(double), _ => true)] = args => Snakeskin.Double(args.MinValue, args.MaxValue),
+        [(typeof(float), _ => true)] = args => Snakeskin.Float(args.MinValue, args.MaxValue),
+        [(typeof(Guid), _ => true)] = args => Snakeskin.Guid(),
+        [(typeof(decimal), _ => true)] = args => Snakeskin.Decimal(args.MinValue, args.MaxValue),
+        [(typeof(double), _ => true)] = args => Snakeskin.Double(args.MinValue, args.MaxValue),
+        [(typeof(float), _ => true)] = args => Snakeskin.Float(args.MinValue, args.MaxValue),
         // 其他类型...
     };
 

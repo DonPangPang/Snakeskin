@@ -2,5 +2,5 @@
 
 public class SnakeskinEntityFrameworkCoreBuilder
 {
-    public SnakeskinFakeTypeBuilder FakeTypeBuilder { get; } = new();
+    public SnakeskinFakeTypeCollection FakeTypeCollection { get; } = new();
 }

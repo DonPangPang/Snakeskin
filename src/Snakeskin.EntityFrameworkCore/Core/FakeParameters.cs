@@ -7,6 +7,7 @@ namespace Snakeskin.EntityFrameworkCore.Core;
 public class FakeParameters(PropertyInfo propertyInfo)
 {
     private int? _minValue = null;
+
     public int MinValue
     {
         get
@@ -22,6 +23,7 @@ public class FakeParameters(PropertyInfo propertyInfo)
     }
 
     private int? _maxValue = null;
+
     public int MaxValue
     {
         get
@@ -36,15 +38,16 @@ public class FakeParameters(PropertyInfo propertyInfo)
     }
 
     private int? _minLength = null;
+
     public int MinLength
     {
         get
         {
-            if (_minLength is not null) return _minLength ?? 0;
+            if (_minLength is not null) return _minLength ?? 1;
             var attr = propertyInfo.GetCustomAttribute<MinLengthAttribute>();
             if (attr is not null)
                 _minLength = attr.Length;
-            return _minLength ?? 0;
+            return _minLength ?? 1;
         }
     }
 
