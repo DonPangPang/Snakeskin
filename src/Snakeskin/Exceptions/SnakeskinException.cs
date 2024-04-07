@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Snakeskin.Exceptions;
+﻿namespace Snakeskin.Exceptions;
 
 internal class SnakeskinException : Exception
 {
@@ -12,7 +6,6 @@ internal class SnakeskinException : Exception
     {
     }
 }
-
 
 internal class SnakeskinOutOfRangeException : SnakeskinException
 {

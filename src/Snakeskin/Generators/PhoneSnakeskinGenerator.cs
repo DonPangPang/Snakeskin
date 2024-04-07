@@ -1,13 +1,14 @@
-using System.Text;
 using Snakeskin.Core;
 using Snakeskin.Enums;
 using Snakeskin.IGenerators;
+using System.Text;
 
 namespace Snakeskin.Generators;
 
 public class PhoneSnakeskinGenerator : IPhoneSnakeskinGenerator
 {
     protected readonly string _chars = "0123456789";
+
     public string GenerateTelephoneNumber()
     {
         var result = new StringBuilder();

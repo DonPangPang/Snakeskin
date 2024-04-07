@@ -1,10 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Snakeskin.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snakeskin.BenchmarkTests;
 
@@ -28,7 +23,7 @@ public class SnakeskinTest
         var value = Snakeskin.DateTime();
     }
 
-    [Benchmark] 
+    [Benchmark]
     public void GeneratorDateTimeInterval()
     {
         var value = Snakeskin.DateTime(DateTime.MinValue, DateTime.MaxValue);

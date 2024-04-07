@@ -9,14 +9,17 @@ public class SnakeskinFakeBuilder<T>
     {
         return this;
     }
+
     public SnakeskinFakeBuilder<T> FakeName(Expression<Func<T, string>> expression)
     {
         return this;
     }
+
     public SnakeskinFakeBuilder<T> FakePhone(Expression<Func<T, string>> expression, CountryCode countryCode = CountryCode.China)
     {
         return this;
     }
+
     public SnakeskinFakeBuilder<T> FakeId(Expression<Func<T, int>> expression, bool ordered = true)
     {
         return this;

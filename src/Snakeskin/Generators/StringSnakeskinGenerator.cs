@@ -1,12 +1,13 @@
-﻿using System.Text;
-using Snakeskin.Core;
+﻿using Snakeskin.Core;
 using Snakeskin.IGenerators;
+using System.Text;
 
 namespace Snakeskin.Generators;
 
 public class StringSnakeskinGenerator : IStringSnakeskinGenerator
 {
     protected readonly string _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
     public string Generate()
     {
         var length = SnakeskinGenerator.RandomNumber(1, 100);

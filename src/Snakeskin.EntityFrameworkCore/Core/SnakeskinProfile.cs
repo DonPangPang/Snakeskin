@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace Snakeskin.EntityFrameworkCore.Core;
+﻿namespace Snakeskin.EntityFrameworkCore.Core;
 
 public class SnakeskinProfile
 {
@@ -18,6 +16,7 @@ public class SnakeskinProfile
         return new SnakeskinFakeBuilder<T>();
     }
 }
+
 public class User
 {
     public int Id { get; set; }
@@ -29,6 +28,6 @@ public class Role
 {
     public int Id { get; set; }
     public int UserId { get; set; }
-    
+
     public string Name { get; set; }
 }

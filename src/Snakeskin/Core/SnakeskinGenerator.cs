@@ -8,7 +8,8 @@ public class SnakeskinGenerator
 
     private static readonly ThreadLocal<Random> _threadLocal = new ThreadLocal<Random>(() => new Random(Interlocked.Increment(ref seed)));
 
-    public static Random _random { get { return _threadLocal.Value ?? throw new SnakeskinRandomException(); } }
+    public static Random _random
+    { get { return _threadLocal.Value ?? throw new SnakeskinRandomException(); } }
 
     public static int RandomNumber(int min, int max)
     {
@@ -32,6 +33,7 @@ public class SnakeskinGenerator
     private const long _quickRandomMask = 1L << 32 - 1;
 
     private static QuickRandom _quick = new QuickRandom((ulong)seed);
+
     public static int QuickRandomNumber(int length)
     {
         return (int)_quick.Next(0, 100);
@@ -67,4 +69,3 @@ public class SnakeskinGenerator
         }
     }
 }
-

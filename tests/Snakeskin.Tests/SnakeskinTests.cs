@@ -152,7 +152,7 @@ namespace Snakeskin.Tests
         [Fact]
         public void NameTest()
         {
-            for(int i = 0; i < MAX_VALUE; i++)
+            for (int i = 0; i < MAX_VALUE; i++)
             {
                 var value = Snakeskin.Name();
 

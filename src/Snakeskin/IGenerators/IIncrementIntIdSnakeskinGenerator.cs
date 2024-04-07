@@ -4,5 +4,3 @@ public interface IIncrementIntIdSnakeskinGenerator : ISnakeskinGenerator
 {
     int Generate();
 }
-
-

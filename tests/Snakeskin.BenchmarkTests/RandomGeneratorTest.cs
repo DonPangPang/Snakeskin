@@ -11,7 +11,6 @@ public class RandomGeneratorTest
         var value = SnakeskinGenerator.RandomNumber(1, 100);
     }
 
-
     [Benchmark]
     public void QuickRandomTest()
     {

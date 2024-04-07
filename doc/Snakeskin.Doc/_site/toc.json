@@ -1,2 +1,11 @@
-
-{"items":[{"name":"Docs","href":"docs/introduction.html","tocHref":"docs/toc.html","topicHref":"docs/introduction.html"}],"pdf":true}
+{
+  "items": [
+    {
+      "name": "Docs",
+      "href": "docs/introduction.html",
+      "tocHref": "docs/toc.html",
+      "topicHref": "docs/introduction.html"
+    }
+  ],
+  "pdf": true
+}

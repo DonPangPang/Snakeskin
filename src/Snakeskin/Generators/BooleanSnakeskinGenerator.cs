@@ -18,9 +18,9 @@ public class BooleanSnakeskinGenerator : IBooleanSnakeskinGenerator
     /// <summary>
     /// 百分比生成
     /// </summary>
-    /// <param name="probability">可能的占比, 输入0~1</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    /// <param name="probability"> 可能的占比, 输入0~1 </param>
+    /// <returns> </returns>
+    /// <exception cref="ArgumentOutOfRangeException"> </exception>
     public bool Generate(float probability)
     {
         if (probability < 0 || probability > 1)

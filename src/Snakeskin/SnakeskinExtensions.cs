@@ -2,13 +2,7 @@
 using Snakeskin.Core;
 using Snakeskin.Generators;
 using Snakeskin.IGenerators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Snakeskin;
 
@@ -40,6 +34,7 @@ public static class SnakeskinExtensions
 public static class SnakeskinConfiguration
 {
     private static Dictionary<string, List<object>>? _seed { get; set; } = null;
+
     static SnakeskinConfiguration()
     {
         if (_seed is not null) return;

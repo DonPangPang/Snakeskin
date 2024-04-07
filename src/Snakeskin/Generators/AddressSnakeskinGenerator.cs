@@ -1,6 +1,5 @@
 ﻿using Snakeskin.Core;
 using Snakeskin.IGenerators;
-using System.Collections.Concurrent;
 using System.Text;
 
 namespace Snakeskin.Generators;
@@ -8,6 +7,7 @@ namespace Snakeskin.Generators;
 public class AddressSnakeskinGenerator : IAddressSnakeskinGenerator
 {
     private const string _alphabet = "abcdefghijklmnopqrstuvwxyz";
+
     public string Generate(AddressType addressType = AddressType.Full)
     {
         var sb = new StringBuilder();
@@ -38,7 +38,6 @@ public class AddressSnakeskinGenerator : IAddressSnakeskinGenerator
     private readonly string[] _cityCache = new string[_maxCityCacheLength];
     private readonly string[] _streetCache = new string[_maxStreetCacheLength];
     private readonly string[] _houseNumberCache = new string[_maxHouseNumberCacheLength];
-
 
     public string GenerateCounty()
     {
@@ -72,7 +71,6 @@ public class AddressSnakeskinGenerator : IAddressSnakeskinGenerator
         catch { return "Unknown City"; }
     }
 
-
     public string GenerateStreet()
     {
         try
@@ -88,6 +86,7 @@ public class AddressSnakeskinGenerator : IAddressSnakeskinGenerator
         }
         catch { return "Unknown Street"; }
     }
+
     public string GenerateHouseNumber()
     {
         try

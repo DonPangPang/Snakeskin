@@ -1,6 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using Snakeskin.EntityFrameworkCore.Core;
+using System.Collections.Concurrent;
 using System.Diagnostics;
-using Snakeskin.EntityFrameworkCore.Core;
 
 namespace Snakeskin.EntityFrameworkCore;
 

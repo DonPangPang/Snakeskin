@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Snakeskin.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Snakeskin.SampleWebApi.Data;
 

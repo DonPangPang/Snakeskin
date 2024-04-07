@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Snakeskin.EntityFrameworkCore.Extensions;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using Snakeskin.EntityFrameworkCore.Extensions;
 
 namespace Snakeskin.EntityFrameworkCore.Core;
 

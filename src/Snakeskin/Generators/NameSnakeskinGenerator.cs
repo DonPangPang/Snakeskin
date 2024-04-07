@@ -1,6 +1,6 @@
-﻿using System.Text;
-using Snakeskin.Core;
+﻿using Snakeskin.Core;
 using Snakeskin.IGenerators;
+using System.Text;
 
 namespace Snakeskin.Generators;
 
