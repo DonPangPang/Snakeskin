@@ -32,7 +32,7 @@ catch (Exception e)
     Console.WriteLine(e.Message);
 }
 
-await app.CommitFakeAsync<SnakeskinDbContext>();
+//await app.CommitFakeAsync<SnakeskinDbContext>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

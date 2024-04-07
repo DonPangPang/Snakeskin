@@ -49,4 +49,10 @@ public class SnakeskinFakeTypeCollection : ConcurrentDictionary<string, ISnakesk
         this[key] = fakeTypeBuilder;
         return (SnakeskinFakeTypeBuilder<T>)fakeTypeBuilder;
     }
+
+    public IEnumerable<ISnakeskinFakeTypeBuilder> GetTypes(IEnumerable<Type> ignoreTypes)
+    {
+        var ignoreTypeNames = ignoreTypes.Select(x => x.Name);
+        return this.Where(x => !ignoreTypeNames.Contains(x.Key)).Select(x => x.Value);
+    }
 }

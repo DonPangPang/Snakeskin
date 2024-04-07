@@ -24,6 +24,8 @@ public class SnakeskinDbContext(DbContextOptions<SnakeskinDbContext> options) : 
         modelBuilder.Fake<User>()
             .WithCount(10_000);
 
+        modelBuilder.CommitFake();
+
         base.OnModelCreating(modelBuilder);
     }
 }

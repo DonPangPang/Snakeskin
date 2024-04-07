@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Collections.Concurrent;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,11 +9,25 @@ public static class SnakeskinEntityFrameworkCoreExtensions
 {
     private static readonly SnakeskinEntityFrameworkCoreBuilder Builder = new();
 
+    private static readonly ConcurrentBag<Type> IgnoredTypes = new();
+
     public static SnakeskinFakeTypeBuilder<T> Fake<T>(this ModelBuilder modelBuilder) where T : class
     {
         var builder = Builder.FakeTypeCollection.GetFakeTypeBuilder<T>();
 
         return builder;
+    }
+
+    public static ModelBuilder IgnoreFake(this ModelBuilder modelBuilder, Type type)
+    {
+        IgnoredTypes.Add(type);
+        return modelBuilder;
+    }
+
+    public static ModelBuilder IgnoreFake<T>(this ModelBuilder modelBuilder) where T : class
+    {
+        IgnoredTypes.Add(typeof(T));
+        return modelBuilder;
     }
 
     public static T FakeOne<T>(this DbContext context) where T : class
@@ -22,6 +37,7 @@ public static class SnakeskinEntityFrameworkCoreExtensions
         return builder.Fake().Build().FakeOne<T>();
     }
 
+    [Obsolete("性能不太好")]
     public static async Task CommitFakeAsync<TDbContext>(this IApplicationBuilder app) where TDbContext : DbContext
     {
         using var scoped = app.ApplicationServices.CreateScope();
@@ -41,6 +57,18 @@ public static class SnakeskinEntityFrameworkCoreExtensions
                 await context.SaveChangesAsync();
                 context.ChangeTracker.AutoDetectChangesEnabled = true; // Enable change tracking
                 context.ChangeTracker.AcceptAllChanges(); // Confirm changes
+            }
+        }
+    }
+
+    public static void CommitFake(this ModelBuilder modelBuilder)
+    {
+        foreach (var fakeTypeBuilder in Builder.FakeTypeCollection.GetTypes(IgnoredTypes))
+        {
+            var fakeType = fakeTypeBuilder.Build();
+            foreach (var unused in Enumerable.Range(0, fakeType.Count))
+            {
+                modelBuilder.Entity(fakeType.ClrType).HasData(fakeType.FakeOne());
             }
         }
     }
