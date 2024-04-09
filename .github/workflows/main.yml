@@ -1,1 +1,31 @@
+name: Build and Publish NuGet Packages
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build Snakeskin
+        run: dotnet build src/Snakeskin/Snakeskin.csproj --configuration Release
+
+      - name: Publish Snakeskin to NuGet
+        run: dotnet nuget push src/Snakeskin/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+
+      - name: Build Snakeskin.EntityFrameworkCore
+        run: dotnet build src/Snakeskin.EntityFrameworkCore/Snakeskin.EntityFrameworkCore.csproj --configuration Release
+
+      - name: Publish Snakeskin.EntityFrameworkCore to NuGet
+        run: dotnet nuget push src/Snakeskin.EntityFrameworkCore/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}

@@ -5,6 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+	  <Version>0.1.0-preview</Version>
+	  <PackageProjectUrl>https://github.com/wosledon/Snakeskin</PackageProjectUrl>
+	  <PackageReadmeFile>README.MD</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/wosledon/Snakeskin</RepositoryUrl>
+	  <Authors>ledon</Authors>
+	  <PackageDescription>Fake;Fake Date;Ef Core;EntityFrameworkCore</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,5 +21,23 @@
   <ItemGroup>
     <ProjectReference Include="..\Snakeskin\Snakeskin.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.MD">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+
+		<None Include="..\..\README_en.MD">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="LICENSE.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
