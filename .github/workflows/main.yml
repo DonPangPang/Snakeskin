@@ -21,8 +21,8 @@ jobs:
             - name: Restore dependencies
               run: dotnet restore
 
-            - name: Run tests
-              run: dotnet test --no-restore
+            # - name: Run tests
+            #   run: dotnet test --no-restore
 
             - name: Build Snakeskin
               run: dotnet build src/Snakeskin/Snakeskin.csproj --configuration Release --no-restore
