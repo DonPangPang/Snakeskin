@@ -7,7 +7,7 @@ The purpose of this library is to quickly generate test data during the developm
 [![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 [![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
 
-[![Build and Publish NuGet Packages](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml/badge.svg)](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml)
+[![Build and Publish NuGet Packages](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml)
 [![ReSharper](https://img.shields.io/badge/ReSharper-Enabled-brightgreen.svg)](https://www.jetbrains.com/resharper/)
 
 | Package | Version | Downloads |
