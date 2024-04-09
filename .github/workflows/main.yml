@@ -24,15 +24,15 @@ jobs:
             # - name: Run tests
             #   run: dotnet test --no-restore
 
-            - name: Build Snakeskin
-              run: dotnet build src/Snakeskin/Snakeskin.csproj --configuration Release --no-restore
+            - name: Pack Snakeskin
+              run: dotnet pack src/Snakeskin/Snakeskin.csproj --configuration Release --no-restore --output ./bin/Release
 
             - name: Publish Snakeskin to NuGet
               run: dotnet nuget push src/Snakeskin/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
               if: success()
 
-            - name: Build Snakeskin.EntityFrameworkCore
-              run: dotnet build src/Snakeskin.EntityFrameworkCore/Snakeskin.EntityFrameworkCore.csproj --configuration Release --no-restore
+            - name: Pack Snakeskin.EntityFrameworkCore
+              run: dotnet pack src/Snakeskin.EntityFrameworkCore/Snakeskin.EntityFrameworkCore.csproj --configuration Release --no-restore --output ./bin/Release
               if: success()
 
             - name: Publish Snakeskin.EntityFrameworkCore to NuGet
