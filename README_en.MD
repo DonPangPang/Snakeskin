@@ -1,6 +1,6 @@
 # Snakeskin
 
-¼òÌåÖĞÎÄ|[English](README_en.md)
+ç®€ä½“ä¸­æ–‡ | [English](README_en.MD)
 
 [![Build Status](https://dev.azure.com/zhongdi/Snakeskin/_apis/build/status/Snakeskin-CI?branchName=master)](https://dev.azure.com/zhongdi/Snakeskin/_build/latest?definitionId=1&branchName=master)
 [![NuGet](https://img.shields.io/nuget/v/Snakeskin.svg)](https://www.nuget.org/packages/Snakeskin/)
