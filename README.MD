@@ -1,14 +1,14 @@
 # Snakeskin
 
-¼òÌåÖĞÎÄ|[English](README_en.MD)
+ç®€ä½“ä¸­æ–‡|[English](README_en.MD)
 
 [![Build Status](https://dev.azure.com/zhongdi/Snakeskin/_apis/build/status/Snakeskin-CI?branchName=master)](https://dev.azure.com/zhongdi/Snakeskin/_build/latest?definitionId=1&branchName=master)
 [![NuGet](https://img.shields.io/nuget/v/Snakeskin.svg)](https://www.nuget.org/packages/Snakeskin/)
 [![ReSharper](https://img.shields.io/badge/ReSharper-Enabled-brightgreen.svg)](https://www.jetbrains.com/resharper/)
 
-¸Ã¿âµÄ×÷ÓÃÊÇÎªÁËÔÚ¿ª·¢¹ı³ÌÖĞ£¬¿ìËÙÉú³É²âÊÔÊı¾İ¡£
+è¯¥åº“çš„ä½œç”¨æ˜¯ä¸ºäº†åœ¨å¼€å‘è¿‡ç¨‹ä¸­ï¼Œå¿«é€Ÿç”Ÿæˆæµ‹è¯•æ•°æ®ã€‚
 
-## Ê¹ÓÃ·½·¨
+## ä½¿ç”¨æ–¹æ³•
 
 ```csharp
 public class SnakeskinDbContext(DbContextOptions<SnakeskinDbContext> options) : DbContext(options)
