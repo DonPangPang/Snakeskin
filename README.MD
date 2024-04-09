@@ -4,6 +4,9 @@
 
 该库的作用是为了在开发过程中，快速生成测试数据。
 
+[![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
+[![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
+
 [![Build and Publish NuGet Packages](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml/badge.svg)](https://github.com/wosledon/Snakeskin/actions/workflows/main.yml)
 [![ReSharper](https://img.shields.io/badge/ReSharper-Enabled-brightgreen.svg)](https://www.jetbrains.com/resharper/)
 
@@ -35,7 +38,4 @@ public class SnakeskinDbContext(DbContextOptions<SnakeskinDbContext> options) : 
 
 <a href="https://jb.gg/OpenSourceSupport">
     <img height="80px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo.">
-</a>
-<a href="https://code.visualstudio.com/">
-    <img height="70px" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code logo.">
 </a>

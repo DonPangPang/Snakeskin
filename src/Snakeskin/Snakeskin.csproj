@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>0.1.1-preview</Version>
+		<Version>0.1.2-preview</Version>
 		<PackageProjectUrl>https://github.com/wosledon/Snakeskin</PackageProjectUrl>
 		<PackageReadmeFile>README.MD</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/wosledon/Snakeskin</RepositoryUrl>
