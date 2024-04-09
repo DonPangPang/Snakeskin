@@ -1,6 +1,6 @@
 # Snakeskin
 
-简体中文 | [English](README_en.MD)
+[简体中文](README.MD) | [English](README_en.MD)
 
 The purpose of this library is to quickly generate test data during the development process.
 

@@ -1,6 +1,6 @@
 # Snakeskin
 
-简体中文|[English](README_en.MD)
+[简体中文](README.MD) | [English](README_en.MD)
 
 该库的作用是为了在开发过程中，快速生成测试数据。
 
