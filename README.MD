@@ -13,7 +13,7 @@
 | Package | Version | Downloads |
 |---------|---------|-----------|
 | Snakeskin | [![NuGet version (Snakeskin)](https://img.shields.io/nuget/v/Snakeskin.svg)](https://www.nuget.org/packages/Snakeskin/) | [![NuGet downloads (Snakeskin)](https://img.shields.io/nuget/dt/Snakeskin.svg)](https://www.nuget.org/packages/Snakeskin/) |
-| Snakeskin.EntityFrameworkCore | [![NuGet version (Snakeskin.EntityFrameworkCore)](https://img.shields.io/nuget/v/Snakeskin.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Snakeskin.EntityFrameworkCore/) | [![NuGet downloads (Snakeskin.EntityFrameworkCore)](https://img.shields.io/nuget/dt/Snakeskin.EntityFrameworkCoresvg)](https://www.nuget.org/packages/Snakeskin.EntityFrameworkCore/) |
+| Snakeskin.EntityFrameworkCore | [![NuGet version (Snakeskin.EntityFrameworkCore)](https://img.shields.io/nuget/v/Snakeskin.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Snakeskin.EntityFrameworkCore/) | [![NuGet downloads (Snakeskin.EntityFrameworkCore)](https://img.shields.io/nuget/dt/Snakeskin.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Snakeskin.EntityFrameworkCore/) |
 
 ## 使用方法
 
