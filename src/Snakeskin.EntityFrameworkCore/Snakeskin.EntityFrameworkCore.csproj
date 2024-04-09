@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-	  <Version>0.1.0-preview</Version>
-	  <PackageProjectUrl>https://github.com/wosledon/Snakeskin</PackageProjectUrl>
-	  <PackageReadmeFile>README.MD</PackageReadmeFile>
-	  <RepositoryUrl>https://github.com/wosledon/Snakeskin</RepositoryUrl>
-	  <Authors>ledon</Authors>
-	  <PackageDescription>Fake;Fake Date;Ef Core;EntityFrameworkCore</PackageDescription>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<Version>0.1.1-preview</Version>
+		<PackageProjectUrl>https://github.com/wosledon/Snakeskin</PackageProjectUrl>
+		<PackageReadmeFile>README.MD</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/wosledon/Snakeskin</RepositoryUrl>
+		<Authors>ledon</Authors>
+		<PackageDescription>Fake;Fake Date;Ef Core;EntityFrameworkCore</PackageDescription>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Snakeskin\Snakeskin.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Snakeskin\Snakeskin.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\..\README.MD">
