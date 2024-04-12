@@ -53,4 +53,10 @@ public static class Snakeskin
     public static string PhoneV2(int? countryCode = null, int length = 11) => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GeneratePhoneNumber(countryCode, length);
 
     public static string Telephone() => SnakeskinBuilder.GetService<IPhoneSnakeskinGenerator>().GenerateTelephoneNumber();
+
+    public static string Address() => SnakeskinBuilder.GetService<IAddressSnakeskinGenerator>().Generate();
+    public static string Address_City() => SnakeskinBuilder.GetService<IAddressSnakeskinGenerator>().GenerateCity();
+    public static string Address_Street() => SnakeskinBuilder.GetService<IAddressSnakeskinGenerator>().GenerateStreet();
+    public static string Address_County() => SnakeskinBuilder.GetService<IAddressSnakeskinGenerator>().GenerateCounty();
+    public static string Address_HouseNumber() => SnakeskinBuilder.GetService<IAddressSnakeskinGenerator>().GenerateHouseNumber();
 }
